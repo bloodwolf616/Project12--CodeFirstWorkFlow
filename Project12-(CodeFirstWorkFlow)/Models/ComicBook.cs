@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Project12__CodeFirstWorkFlow_.Models
 {
+    //Each Entity class represents a table in the database. All the properties represent a column in the table.
    public class ComicBook
     {
         public int Id { get; set; }
