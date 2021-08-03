@@ -10,7 +10,10 @@ namespace Project12__CodeFirstWorkFlow_
 {
     public class Context : DbContext
     {
-        public Context() : base("ComicBookGallery") {}
+        public Context()
+        {
+            Database.SetInitializer(new DropCreateDatabaseIfModelChanges<Context>());
+        }
 
 
         //dbset represents a collection of all Entities of that class type in our project. think of a list of Employee Entity classes that represent different employees. 
