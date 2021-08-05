@@ -10,14 +10,15 @@ namespace Project12__CodeFirstWorkFlow_.Models
    public class ComicBook
     {
         public int Id { get; set; }
-        //A number of comic books can relate to one series class. Relational databases.
-        public Series Series { get; set; }
+
+        public int SeriesId { get; set; }
         public int IssueNumber { get; set; }
         public string Description { get; set; }
         public DateTime PublishedOn { get; set; }
         public decimal? AverageRating { get; set; }
 
-
+        //A number of comic books can relate to one series class. Relational databases.
+        public Series Series { get; set; }
 
         public string DisplayText
         {
