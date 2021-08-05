@@ -36,6 +36,16 @@ namespace Project12__CodeFirstWorkFlow_
                     Name = "Steve Diko"
                 };
 
+                var role1 = new Role()
+                {
+                    Name = "Script"
+                };
+
+                var role2 = new Role()
+                {
+                    Name = "pencils"
+                };
+
 
                 var comicBook1 = new ComicBook()
                 {
@@ -44,8 +54,8 @@ namespace Project12__CodeFirstWorkFlow_
                     PublishedOn = DateTime.Today
 
                 };
-                comicBook1.Artists.Add(artist1);
-                comicBook1.Artists.Add(artist2);
+                comicBook1.AddArtists(artist1, role1);
+                comicBook1.AddArtists(artist2, role2);
 
                 var comicBook2 = new ComicBook()
                 {
@@ -53,8 +63,8 @@ namespace Project12__CodeFirstWorkFlow_
                     IssueNumber = 2,
                     PublishedOn = DateTime.Today
                 };
-                comicBook2.Artists.Add(artist1);
-                comicBook2.Artists.Add(artist2);
+                comicBook2.AddArtists(artist1, role1);
+                comicBook2.AddArtists(artist2, role2);
 
                 var comicBook3 = new ComicBook()
                 {
@@ -62,8 +72,8 @@ namespace Project12__CodeFirstWorkFlow_
                     IssueNumber = 1,
                     PublishedOn = DateTime.Today
                 };
-                comicBook3.Artists.Add(artist1);
-                comicBook3.Artists.Add(artist3);
+                comicBook3.AddArtists(artist1, role1);
+                comicBook3.AddArtists(artist3, role2);
 
                 context.ComicBooks.Add(comicBook1);
                 context.ComicBooks.Add(comicBook2);
@@ -73,14 +83,15 @@ namespace Project12__CodeFirstWorkFlow_
 
                 var comicBooks = context.ComicBooks
                     .Include(cb => cb.Series)
-                    .Include(cb => cb.Artists)
+                    .Include(cb => cb.Artists.Select(a => a.Artist))
+                    .Include(cb => cb.Artists.Select(a => a.Role))
                     .ToList();
                 foreach(var comic in comicBooks)
                 {
-                    var artistsNames = comic.Artists.Select(a => a.Name).ToList();
-                    var displayArtists = string.Join(", ", artistsNames);
+                    var artistRolesNames = comic.Artists.Select(a => $"{a.Artist.Name} - {a.Role.Name}").ToList();
+                    var displayArtistRoles = string.Join(", ", artistRolesNames);
                     Console.WriteLine(comic.DisplayText);
-                    Console.WriteLine(displayArtists);
+                    Console.WriteLine(displayArtistRoles);
                 }
 
               
