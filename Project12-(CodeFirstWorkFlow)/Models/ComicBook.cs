@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,6 +18,8 @@ namespace Project12__CodeFirstWorkFlow_.Models
 
         public int SeriesId { get; set; }
         public int IssueNumber { get; set; }
+       
+        [StringLength(100)]
         public string Description { get; set; }
         public DateTime PublishedOn { get; set; }
         public decimal? AverageRating { get; set; }
