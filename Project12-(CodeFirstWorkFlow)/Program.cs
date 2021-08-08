@@ -18,7 +18,7 @@ namespace Project12__CodeFirstWorkFlow_
                 {
                     Title = "The Amazing Spider-Man"
                 };
-                
+
                 var series2 = new Series()
                 {
                     Title = "The Invincible Iron Man"
@@ -54,8 +54,8 @@ namespace Project12__CodeFirstWorkFlow_
                     PublishedOn = DateTime.Today
 
                 };
-                comicBook1.AddArtists(artist1, role1);
-                comicBook1.AddArtists(artist2, role2);
+                comicBook1.AddArtist(artist1, role1);
+                comicBook1.AddArtist(artist2, role2);
 
                 var comicBook2 = new ComicBook()
                 {
@@ -63,8 +63,8 @@ namespace Project12__CodeFirstWorkFlow_
                     IssueNumber = 2,
                     PublishedOn = DateTime.Today
                 };
-                comicBook2.AddArtists(artist1, role1);
-                comicBook2.AddArtists(artist2, role2);
+                comicBook2.AddArtist(artist1, role1);
+                comicBook2.AddArtist(artist2, role2);
 
                 var comicBook3 = new ComicBook()
                 {
@@ -72,8 +72,8 @@ namespace Project12__CodeFirstWorkFlow_
                     IssueNumber = 1,
                     PublishedOn = DateTime.Today
                 };
-                comicBook3.AddArtists(artist1, role1);
-                comicBook3.AddArtists(artist3, role2);
+                comicBook3.AddArtist(artist1, role1);
+                comicBook3.AddArtist(artist3, role2);
 
                 context.ComicBooks.Add(comicBook1);
                 context.ComicBooks.Add(comicBook2);

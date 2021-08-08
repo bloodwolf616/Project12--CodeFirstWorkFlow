@@ -13,6 +13,7 @@ namespace Project12__CodeFirstWorkFlow_.Models
         {
             ComicBooks = new List<ComicBookArtist>();
         }
+       
         public int Id { get; set; }
         [Required, StringLength(100)]
         public string Name { get; set; }

@@ -21,3 +21,5 @@ namespace Project12__CodeFirstWorkFlow_
         public DbSet<ComicBook> ComicBooks { get; set; }
     }
 }
+
+

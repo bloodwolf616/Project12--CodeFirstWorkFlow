@@ -40,7 +40,7 @@ namespace Project12__CodeFirstWorkFlow_.Models
         }
 
 
-        public void AddArtists(Artist artist, Role role)
+        public void AddArtist(Artist artist, Role role)
         {
             Artists.Add(new ComicBookArtist() 
             {
