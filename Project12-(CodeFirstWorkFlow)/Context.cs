@@ -12,7 +12,7 @@ namespace Project12__CodeFirstWorkFlow_
     {
         public Context()
         {
-            Database.SetInitializer(new DropCreateDatabaseAlways<Context>());
+            Database.SetInitializer(new DatabaseInitializer());
         }
 
 
@@ -21,5 +21,7 @@ namespace Project12__CodeFirstWorkFlow_
         public DbSet<ComicBook> ComicBooks { get; set; }
     }
 }
+
+//DropCreateDatabaseAlways<Context>()
 
 
