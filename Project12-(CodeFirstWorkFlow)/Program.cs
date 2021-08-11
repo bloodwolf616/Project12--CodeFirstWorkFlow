@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using Project12__CodeFirstWorkFlow_.Models;
 using System.Data.Entity;
+using System.Diagnostics;
+
 namespace Project12__CodeFirstWorkFlow_
 {
     class Program
@@ -81,10 +83,20 @@ namespace Project12__CodeFirstWorkFlow_
 
                 context.SaveChanges();
 
+                context.Database.Log = (message) => Debug.WriteLine(message);
 
-                var comicbooks = context.ComicBooks.ToList();
+                var comicbooks = context.ComicBooks
+                    .Include(cb => cb.Series)
+                    .Where(cb => cb.IssueNumber == 1)
+                    .ToList();
 
+                foreach(var comic in comicbooks)
+                {
+                    Console.WriteLine(comic.DisplayText);
+                }
 
+                Console.WriteLine();
+                Console.WriteLine("# of comic books: {0}", comicbooks.Count);
 
                 //var comicBooks = context.ComicBooks
                 //    .Include(cb => cb.Series)
