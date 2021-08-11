@@ -9,7 +9,7 @@ using System.Data.Entity.Validation;
 
 namespace Project12__CodeFirstWorkFlow_
 {
-    class DatabaseInitializer : DropCreateDatabaseIfModelChanges<Context>
+    class DatabaseInitializer : DropCreateDatabaseAlways<Context>  //DropCreateDatabaseIfModelChanges<Context>
     {
         protected override void Seed(Context context)
         {
@@ -178,12 +178,14 @@ namespace Project12__CodeFirstWorkFlow_
             }
             catch (DbEntityValidationException ae)
             {
+                // "EntityValidationErrors" is a collection of Entities that could not be validated
                 foreach (var e in ae.EntityValidationErrors)
                 {
                     Console.WriteLine("Entity of type \"{0}\" in state \"{1}\" has the following validation errors:"
                         , e.Entry.Entity.GetType().Name, e.Entry.State);
 
 
+                    // "ValidationErrors" this represents the error on each Entity.
                     foreach (var eve in e.ValidationErrors)
                     {
                         Console.WriteLine("- Property: \"{0}\", Error: \"{1}\"", eve.PropertyName, eve.ErrorMessage);

@@ -27,7 +27,8 @@ namespace Project12__CodeFirstWorkFlow_
                     .ToList();
 
                 var comicBookQuery2 = comicbooks
-                    .OrderBy(c => c.Series.Title.Contains("man"))
+                    .Where(c => c.Series.Title.Contains("Man"))
+                    .OrderBy(c => c.Series.Title)
                     .ToList();
 
                 foreach(var comic in comicbooks)
