@@ -81,18 +81,23 @@ namespace Project12__CodeFirstWorkFlow_
 
                 context.SaveChanges();
 
-                var comicBooks = context.ComicBooks
-                    .Include(cb => cb.Series)
-                    .Include(cb => cb.Artists.Select(a => a.Artist))
-                    .Include(cb => cb.Artists.Select(a => a.Role))
-                    .ToList();
-                foreach(var comic in comicBooks)
-                {
-                    var artistRolesNames = comic.Artists.Select(a => $"{a.Artist.Name} - {a.Role.Name}").ToList();
-                    var displayArtistRoles = string.Join(", ", artistRolesNames);
-                    Console.WriteLine(comic.DisplayText);
-                    Console.WriteLine(displayArtistRoles);
-                }
+
+                var comicbooks = context.ComicBooks.ToList();
+
+
+
+                //var comicBooks = context.ComicBooks
+                //    .Include(cb => cb.Series)
+                //    .Include(cb => cb.Artists.Select(a => a.Artist))
+                //    .Include(cb => cb.Artists.Select(a => a.Role))
+                //    .ToList();
+                //foreach(var comic in comicBooks)
+                //{
+                //    var artistRolesNames = comic.Artists.Select(a => $"{a.Artist.Name} - {a.Role.Name}").ToList();
+                //    var displayArtistRoles = string.Join(", ", artistRolesNames);
+                //    Console.WriteLine(comic.DisplayText);
+                //    Console.WriteLine(displayArtistRoles);
+                //}
 
               
             }

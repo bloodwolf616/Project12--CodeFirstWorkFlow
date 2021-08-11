@@ -12,7 +12,7 @@ namespace Project12__CodeFirstWorkFlow_
     {
         public Context()
         {
-            Database.SetInitializer(new DropCreateDatabaseIfModelChanges<Context>());
+            Database.SetInitializer(new DropCreateDatabaseAlways<Context>());
         }
 
 
