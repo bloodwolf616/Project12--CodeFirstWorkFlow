@@ -21,45 +21,21 @@ namespace Project12__CodeFirstWorkFlow_
               
                 context.Database.Log = (message) => Debug.WriteLine(message);
 
-                var comicbooks = context.ComicBooks
-                    .Include(cb => cb.Series)
-                    .Where(cb => cb.IssueNumber >= 1)
-                    .ToList();
+                var comicBookId1 = 1;
 
-                var comicBookQuery2 = comicbooks
-                    .Where(c => c.Series.Title.Contains("Man"))
-                    .OrderBy(c => c.Series.Title)
-                    .ToList();
+                // var comicBookEntity1 = context.ComicBooks.Find(comicBookId1);
 
-                foreach(var comic in comicbooks)
-                {
-                    Console.WriteLine(comic.DisplayText);
-                }
-
-                Console.WriteLine();
-                Console.WriteLine("# of comic books: {0}", comicbooks.Count);
-                Console.WriteLine();
+                var comicbookEntity = context.ComicBooks
+                    .Where(c => c.Id == 1)
+                    .SingleOrDefault();
 
 
-                foreach (var comic in comicBookQuery2)
-                {
-                    Console.WriteLine(comic.DisplayText);
-                }
-
-                Console.WriteLine();
-                Console.WriteLine("# of comic books: {0}", comicBookQuery2.Count);
-
-
-               
-                
-                
-                
                 //var comicBooks = context.ComicBooks
                 //    .Include(cb => cb.Series)
                 //    .Include(cb => cb.Artists.Select(a => a.Artist))
                 //    .Include(cb => cb.Artists.Select(a => a.Role))
                 //    .ToList();
-                //foreach(var comic in comicBooks)
+                //foreach (var comic in comicBooks)
                 //{
                 //    var artistRolesNames = comic.Artists.Select(a => $"{a.Artist.Name} - {a.Role.Name}").ToList();
                 //    var displayArtistRoles = string.Join(", ", artistRolesNames);
