@@ -26,8 +26,7 @@ namespace Project12__CodeFirstWorkFlow_
                 // var comicBookEntity1 = context.ComicBooks.Find(comicBookId1);
 
                 var comicbookEntity = context.ComicBooks
-                    .Where(c => c.Id == 1)
-                    .SingleOrDefault();
+                    .SingleOrDefault(c => c.Id == comicBookId1);
 
 
                 //var comicBooks = context.ComicBooks
