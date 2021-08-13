@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Project12__CodeFirstWorkFlow_.Models;
 using System.Data.Entity.Validation;
-
+using Project12__CodeFirstWorkFlow_.Data;
 namespace Project12__CodeFirstWorkFlow_
 {
     class DatabaseInitializer : DropCreateDatabaseAlways<Context>  //DropCreateDatabaseIfModelChanges<Context>
