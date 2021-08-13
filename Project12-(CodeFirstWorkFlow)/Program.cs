@@ -15,18 +15,16 @@ namespace Project12__CodeFirstWorkFlow_
         static void Main(string[] args)
         {
           
-            using(var context = new Context())
+
+
+
+            using (var context = new Context())
             {
                
               
                 context.Database.Log = (message) => Debug.WriteLine(message);
 
-                var comicBookId1 = 1;
-
-                // var comicBookEntity1 = context.ComicBooks.Find(comicBookId1);
-
-                var comicbookEntity = context.ComicBooks
-                    .SingleOrDefault(c => c.Id == comicBookId1);
+            
 
 
                 //var comicBooks = context.ComicBooks

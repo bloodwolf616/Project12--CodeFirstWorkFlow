@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -123,8 +124,27 @@ namespace Project12__CodeFirstWorkFlow_.Data
         {
             using (Context context = GetContext())
             {
+                var Artist23 = new ComicBookArtist()
+                {
+                    Id = 10,
+                    ArtistId = 2,
+                    RoleId = 2
+                };
+
+                comicBook.Artists.Add(Artist23);
+
                 context.ComicBooks.Add(comicBook);
+                if(comicBook.Series != null || comicBook.Series.Id > 0)
+                {
+                    context.Entry(comicBook.Series).State = EntityState.Unchanged;
+                }
+
+                
+
                 context.SaveChanges();
+
+
+
             }
         }
 
