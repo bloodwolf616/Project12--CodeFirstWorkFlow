@@ -15,7 +15,9 @@ namespace Project12__CodeFirstWorkFlow_.Data
         /// <returns>An instance of the Context class.</returns>
         static Context GetContext()
         {
-            return null;
+            var context = new Context();
+            context.Database.Log = (message) => Console.WriteLine(message);
+            return context;
         }
 
         /// <summary>
@@ -121,7 +123,8 @@ namespace Project12__CodeFirstWorkFlow_.Data
         {
             using (Context context = GetContext())
             {
-            
+                context.ComicBooks.Add(comicBook);
+                context.SaveChanges();
             }
         }
 
