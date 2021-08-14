@@ -124,14 +124,13 @@ namespace Project12__CodeFirstWorkFlow_.Data
         {
             using (Context context = GetContext())
             {
-                var Artist23 = new ComicBookArtist()
+                var newSeries = new Series()
                 {
-                    Id = 10,
-                    ArtistId = 2,
-                    RoleId = 2
+                    Id = 1,
+                    Title = "bone"
                 };
 
-                comicBook.Artists.Add(Artist23);
+                comicBook.Series = newSeries;
 
                 context.ComicBooks.Add(comicBook);
                 if(comicBook.Series != null || comicBook.Series.Id > 0)
@@ -139,7 +138,7 @@ namespace Project12__CodeFirstWorkFlow_.Data
                     context.Entry(comicBook.Series).State = EntityState.Unchanged;
                 }
 
-                
+                var seriesIsUnchanged = context.Entry(comicBook.Series);
 
                 context.SaveChanges();
 
