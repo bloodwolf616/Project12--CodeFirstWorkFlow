@@ -130,15 +130,26 @@ namespace Project12__CodeFirstWorkFlow_.Data
                     Title = "bone"
                 };
 
+              
+                //adding duplicate relational Entities that im going to test to get rid of 
+           
                 comicBook.Series = newSeries;
 
                 context.ComicBooks.Add(comicBook);
+
+                //removes unwanted duplicate series Entities
                 if(comicBook.Series != null || comicBook.Series.Id > 0)
                 {
                     context.Entry(comicBook.Series).State = EntityState.Unchanged;
                 }
 
+
+            
+            
+
                 var seriesIsUnchanged = context.Entry(comicBook.Series);
+               
+                
 
                 context.SaveChanges();
 
@@ -155,7 +166,19 @@ namespace Project12__CodeFirstWorkFlow_.Data
         {
             using (Context context = GetContext())
             {
-               
+                ComicBook comicBookToUpdate = context.ComicBooks.Find(comicBook.Id);
+
+                comicBookToUpdate.SeriesId = comicBook.SeriesId;
+                comicBookToUpdate.IssueNumber = comicBook.IssueNumber;
+                comicBookToUpdate.PublishedOn = comicBook.PublishedOn;
+                comicBookToUpdate.AverageRating = comicBook.AverageRating;
+                comicBookToUpdate.Description = comicBook.Description;
+              
+
+
+                context.SaveChanges();
+              
+
             }
         }
 

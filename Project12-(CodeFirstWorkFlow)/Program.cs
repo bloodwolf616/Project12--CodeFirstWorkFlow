@@ -16,6 +16,8 @@ namespace Project12__CodeFirstWorkFlow_
         {
 
 
+            //test code
+
             var seriesSpiderMan = new Series()
             {
                 Title = "The Amazing Spider-Man",
@@ -53,6 +55,10 @@ namespace Project12__CodeFirstWorkFlow_
             comicBook10.AddArtist(artistStanLee, roleScript);
             comicBook10.AddArtist(artistSteveDitko, rolePencils);
             Repository.AddComicBook(comicBook10);
+
+
+
+            //----------------------------------------------------------------
 
 
             //using (var context = new Context())
