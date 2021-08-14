@@ -168,11 +168,7 @@ namespace Project12__CodeFirstWorkFlow_.Data
             {
                 ComicBook comicBookToUpdate = context.ComicBooks.Find(comicBook.Id);
 
-                comicBookToUpdate.SeriesId = comicBook.SeriesId;
-                comicBookToUpdate.IssueNumber = comicBook.IssueNumber;
-                comicBookToUpdate.PublishedOn = comicBook.PublishedOn;
-                comicBookToUpdate.AverageRating = comicBook.AverageRating;
-                comicBookToUpdate.Description = comicBook.Description;
+                context.Entry(comicBookToUpdate).CurrentValues.SetValues(comicBook);
               
 
 
