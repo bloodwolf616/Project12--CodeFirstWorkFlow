@@ -47,24 +47,7 @@ namespace Project12__CodeFirstWorkFlow_
 
 
 
-                Repository.DeleteComicBook(2);
-
-
-
-
-
-                var comicBooks2 = context.ComicBooks
-                  .Include(cb => cb.Series)
-                  .Include(cb => cb.Artists.Select(a => a.Artist))
-                  .Include(cb => cb.Artists.Select(a => a.Role))
-                  .ToList();
-                foreach (var comic in comicBooks2)
-                {
-                    var artistRolesNames = comic.Artists.Select(a => $"{a.Artist.Name} - {a.Role.Name}").ToList();
-                    var displayArtistRoles = string.Join(", ", artistRolesNames);
-                    Console.WriteLine($"{comic.Id}#" + comic.DisplayText);
-                    Console.WriteLine(displayArtistRoles);
-                }
+                
 
 
             }
