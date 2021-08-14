@@ -93,7 +93,7 @@ namespace Project12__CodeFirstWorkFlow_
                 var comicBook3 = new ComicBook()
                 {
                     Series = seriesSpiderMan,
-                    IssueNumber = 3,
+                    IssueNumber = 10,
                     Description = "Spider-Man battles Doctor Octopus and is defeated, he considers himself a failure until the Human Torch gives a speech to his class which inspires him to go in prepared and win the day, leaving Doctor Octopus under arrest. Spider-Man visits the Torch with words of thanks.",
                     PublishedOn = new DateTime(1963, 7, 1),
                     AverageRating = 6.9m

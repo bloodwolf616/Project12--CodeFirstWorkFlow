@@ -124,32 +124,13 @@ namespace Project12__CodeFirstWorkFlow_.Data
         {
             using (Context context = GetContext())
             {
-                var newSeries = new Series()
-                {
-                    Id = 1,
-                    Title = "bone"
-                };
-
-              
-                //adding duplicate relational Entities that im going to test to get rid of 
-           
-                comicBook.Series = newSeries;
-
                 context.ComicBooks.Add(comicBook);
 
                 //removes unwanted duplicate series Entities
-                if(comicBook.Series != null || comicBook.Series.Id > 0)
+                if (comicBook.Series != null || comicBook.Series.Id > 0)
                 {
                     context.Entry(comicBook.Series).State = EntityState.Unchanged;
                 }
-
-
-            
-            
-
-                var seriesIsUnchanged = context.Entry(comicBook.Series);
-               
-                
 
                 context.SaveChanges();
 
@@ -184,7 +165,17 @@ namespace Project12__CodeFirstWorkFlow_.Data
         /// <param name="comicBookId">The comic book ID to delete.</param>
         public static void DeleteComicBook(int comicBookId)
         {
-          
+            using (Context context = GetContext())
+            {
+                var comicToDelete = new ComicBook { Id = comicBookId };
+
+                context.Entry(comicToDelete).State = EntityState.Deleted;
+
+
+                context.SaveChanges();
+
+
+            }
         }
     }
 }
