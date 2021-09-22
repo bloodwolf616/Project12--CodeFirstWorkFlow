@@ -38,10 +38,7 @@ namespace Project12__CodeFirstWorkFlow_
                     .ToList();
                 foreach (var comic in comicBooks)
                 {
-                    var artistRolesNames = comic.Artists.Select(a => $"{a.Artist.Name} - {a.Role.Name}").ToList();
-                    var displayArtistRoles = string.Join(", ", artistRolesNames);
-                    Console.WriteLine($"{comic.Id}#" + comic.DisplayText);
-                    Console.WriteLine(displayArtistRoles);
+                    Console.WriteLine(comic.Series.Title);
                 }
 
 
